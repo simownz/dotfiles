@@ -35,6 +35,26 @@ alias ff='fastfetch'
 alias bt='btop'
 alias update='sudo apt update && sudo apt upgrade'
 
+# HTB helpers
+mkt() {
+    mkdir -p nmap content exploits scripts tmp
+}
+
+extractPorts() {
+    if (( $# != 1 )) || [[ ! -r "$1" ]]; then
+        print -u2 'Usage: extractPorts <nmap-output>'
+        return 1
+    fi
+
+    local ports ip_address
+    ports=$(grep -oP '\d{1,5}(?=/open)' -- "$1" | paste -sd, -)
+    ip_address=$(grep -oP '\d{1,3}(?:\.\d{1,3}){3}' -- "$1" | head -n 1)
+
+    printf '\n[*] Extracting information...\n\n\t[+] IP Address: %s\n\t[+] Open ports: %s\n\n' "$ip_address" "$ports"
+    printf '%s %s' "$ports" "$ip_address" | xclip -selection clipboard &&
+        printf '[*] Ports and IP copied to clipboard\n\n'
+}
+
 # Tools
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
