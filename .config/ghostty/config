@@ -4,11 +4,14 @@ font-size = 13
 window-padding-x = 12
 window-padding-y = 12
 
-background-opacity = 0.96
+background-opacity = 1
 
 #window-decoration = false
 
-cursor-style = bar
+cursor-style = block
+cursor-style-blink = true
+cursor-color = #00ff66
+cursor-text = #001400
 
 shell-integration = zsh
 
@@ -16,4 +19,4 @@ command = /usr/bin/zsh
 
 gtk-titlebar = false
 
-theme = Aura
+theme = Homebrew

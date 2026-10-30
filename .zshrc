@@ -61,4 +61,4 @@ eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
 
 # PATH
-export PATH=/home/dumpzi/.local/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
