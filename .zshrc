@@ -22,7 +22,6 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Plugins (system packages)
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
@@ -62,3 +61,12 @@ eval "$(fzf --zsh)"
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# Command line colors
+typeset -gA ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[default]='fg=#b7d8b7'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=#00ff66,bold'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#58c7ff'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=#58c7ff'
+ZSH_HIGHLIGHT_STYLES[path]='fg=#90ee90,underline'
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
